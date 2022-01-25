@@ -1,0 +1,113 @@
+ToDo4Stefan
+
+
+[DONE] 001 - Scriptname (Inhalt)
+-------------------------
+
+Ein Script-Name genügt nicht.
+Es braucht 3.
+Einen für Syrius-Start-Script-Name
+Einen für OAM-Start-Script-Name
+Einen für KSD-Start-Script
+
+Syrius-Start-Script wie gehabt.
+
+OAM-Start-Script-Name:
+start http://syrius-<envname>-001:8080/oam/app/saleOffer/home?channel=DIC_Inhouse_HEL#!home
+
+KSD-Start-Script:
+start https://syrius-<envname>-001/ksd/app
+
+Stefan: Diese Parameter können wir gern zusammen erstellen. Sollen diese anderen Scripts auch mit dem Tool erstellt werden?
+Bruno: Ja :-)
+Stefan: Done :-)
+Bruno: tiptop.
+
+
+[DONE] 002 - Script-Name (Name)
+------------------------
+Es wäre cool, wenn man den StartScriptNamen anhand einer Namensvorlage setzen könnte.
+Syrius-Start-Script-Name: syrius-test<env>-Fx.bat
+OAM-Start-Script-Name: syrius-test<env>-OAM.bat
+KSD-Start-Script-Name: syrius-test<env>-KSD.bat
+
+Stefan: das ist bereits so, $Environment$, $Name$ und $Database$ werden mit den Werten aus der Environmenttabelle (linke Tabelle) ersetzt, falls es keine Parameter mit denselben Namen gibt.
+Bruno: aber es scheint noch nicht zu funktionieren.
+
+[DONE] 003 - Parameter-Liste (Reihenfolge) Drag and Drop
+-----------------------------------
+Wenn es möglich ist, würde ich gerne die Reihenfolge der Parameter ändern können, mit entsprechenden Buttons:
+[<] markierten Eintrag eins nach oben
+[>] markierten Eintrag eins nach unten
+[|<] markierten Eintrag an den Anfang der Liste
+[>|] markierten Eintrag an das Ende der Liste
+Die Symbole solltest Du dir alle 90° nach rechts umgedreht vorstellen :-)
+
+Stefan: Ich halte Drag & Drop für eine viel angenehmere Variante, was meinst du?
+Bruno: Ja stimmt, aber nicht offensichtlich, mal sehen ob der Benutzer merkt, dass das geht :-) :-) :-) Kannst ja einen Zählen einbauen, wie oft die Funktion verwendet wurde. Wäre sowieso ein geiles Future, dass bei jeder Funktion ein Zähler existiert und man eine Auswertung machen kann :-)
+Stefan: Implementiert (man muss in einen Bereich klicken und halten, funktioniert nicht auf Buttons oder wenn man in die Combobox klickt)
+Bruno: Perfekt, danke.
+
+[DONE] 004 - Parameter global löschen ...
+----------------------------------
+Wenn ein Parameter bei einem Environment gelöscht wurde und nachher merke ich, dass ich es bei allen Umgebungen löschen will, weiss aber nicht mehr, bei welchem ich es schon gelöscht habe, kann ich das nicht ohne Suchen lösen.
+Schön wäre, wenn die Auflistung der Parameter IMMER alle Parameter enthalten würde, die irgendwo verwendet sind. Versteht man das?
+
+Stefan: Das ist bereits so. Parameter werden nie versteckt. Ein Parameter der einmal gelöscht wird, wird immer für alle environments gelöscht, die Daten sind nicht wiederherstellbar (ausser man hat zuvor ein Backup gemacht)
+Kommentar von Bruno: Stimmt, das habe ich nachträglich gemerkt und wollte diesen Hinweis noch löschen, bin aber wohl nicht mehr dazu gekommen.
+Stefan: Closed
+
+
+[DONE] 005 - Parameter Value mit Enter speichern
+---------------------
+Bei Eingabe vom Param-Value wäre es cool, wenn der Default aktive Button [Save changes] wäre, damit die Eingabe mit [Enter] persistiert werden kann, ohne auf dem Button klicken zu müssen.
+
+Stefan: Done, habe die gewünsche Funktionalität so implementiert, dass wenn man bei der Eingabe in eine dieser Auswahlboxen Enter drückt, (nur) dieser Parameter gespeichert wird, falls er verändert wurde. Passt das so?
+Bruno: perfekt!
+Stefan: Closed
+
+
+[DONE] 006 - Environment-Auflistung manuell bearbeiten
+----------------------------
+Es wäre doch noch cool, wenn bestehende Einträge in der Liste gelöscht oder neue manuell hinzgefügt werden könnten.
+Manuell hinzugefügte sollten beim Laden ab externer Quelle nicht gelöscht werden.
+
+Stefan: Done, passt das so?
+Bruno: Ja, ist perfekt, danke.
+
+
+
+[Closed - for now] 007 - Dauer für Update einer einzelnen Umgebungen
+-------------------------------------------------
+Die Parameter-Werte einer einzelnen Umgebung zu speichern dauert fast 10 Sekunden. Das schein mir ein wenig lange.
+Ist aber eigentlich überhaupt kein Problem. Ich hab das gefühlt, dass es mit jedem Klick auf [Save changes] noch ein wenig länger dauert.
+Ist aber nur ein Gefühl, habe es nicht gemessen.
+
+Stefan: Kann ich nicht reproduzieren, Wenn es wieder vorkommt: dauert das "Speichern" von neuen Werten auch sehr lange?
+Kann das Problem zuverlässig behoben werden indem man den Tab wechselt?
+Bruno: Wir haben ja zusammen gesehen, dass das nicht immer passiert und zwischenzeitlich ist es glaube ich eh behoben.
+
+
+[TODO Stefan] 008 - Background loading, UI disabling
+-------------------------------------
+Da es nach Klick auf [Save changes] "recht lange" dauert, bis die Änderungen gespeichert sind, wäre es cool,
+wenn während dieser Zeit die anderen Buttons auch inaktiv dargestellt wären, sonst hat man das Gefühl man könne da drauf
+klicken und dabei ist da noch was am Laufen.
+
+Stefan: Viel schöner wäre, wenn die Änderungen an der Datenbank im Hintergrund passieren und der Benutzer sofort weiterarbeiten kann. Richtig?
+Bruno: Ja, richtig.
+
+
+[DONE] 009 - Combobox select all when focus
+----------------------------------
+Done
+
+
+
+[Closed] 010 - Environment-Liste
+-------------------------------------
+Dadurch, dass jetzt dort ein neuer Button "Edit" hinzugekommen ist, wurde die Liste zu schmal und auf den Buttons unten wird nicht mehr der ganze Text angezeigt. Cool wäre, wenn man die Liste breiter oder schmaler ziehen könnte und wenn die Textgrösse auf den Buttons automatisch zoomt, um nicht abgeschnitten zu werden.
+
+Already done: Die Liste lässt sich bereits breiter und schmaler machen indem man an den Spaltenbreiten herumzieht.
+
+Bruno: Ja, habe ich jetzt gesehen, ist aber Gewöhnungsbedürftig, weil man sonst üblicherweise den ganzen Kasten verbreitert und sich somit die Spalten automatisch an die verfügbare Kastenbreite anpassen. Für mich ist es so, wie es jetzt ist aber auch ganz okay.
